@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Mira co. — Cravings. Comfort. Culture.</title>
+  <meta name="description" content="Experience premium specialty coffee, artisan drinks, and freshly crafted meals at Mira co. Order online for quick delivery or pickup.">
+  <meta name="keywords" content="Mira co, cafe, coffee, fresh drinks, food delivery, artisanal cafe">
+  <meta name="author" content="Mira co.">
+  
+  <!-- Open Graph / Social Media SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Mira co. — Cravings. Comfort. Culture.">
+  <meta property="og:description" content="Crafted fresh, served smooth. Order your favorite food & drinks online.">
+  <meta property="og:image" content="logo.jpg">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-banner">
+    <div class="banner-container">
+      <span>✨ Welcome to Mira co. | Cravings. Comfort. Culture.</span>
+      <button id="open-policy-btn" class="banner-link">Order & Delivery Policy</button>
+    </div>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- Logo Branding -->
+      <a href="#" class="brand-logo">
+        <div class="logo-circle">m</div>
+        <div class="brand-text">
+          <span class="brand-name">Mira co.</span>
+          <span class="brand-tagline">Cravings. Comfort. Culture</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Action Controls (Cart & Mobile Hamburger) -->
+      <div class="header-actions">
+        <button id="cart-toggle-btn" class="icon-btn cart-btn" aria-label="View Shopping Cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          <span id="cart-badge" class="cart-badge">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button (Hamburger / Dynamic X) -->
+        <button id="mobile-menu-toggle" class="icon-btn hamburger-btn" aria-label="Toggle Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Nav -->
+    <nav id="mobile-nav" class="mobile-nav">
+      <a href="#home" class="mobile-nav-link">Home</a>
+      <a href="#about" class="mobile-nav-link">About</a>
+      <a href="#menu" class="mobile-nav-link">Menu</a>
+      <a href="#contact" class="mobile-nav-link">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section with Native Lazy Loaded Image Background -->
+    <section id="home" class="hero-section">
+      <div class="hero-bg-wrapper">
+        <img 
+          src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600" 
+          alt="Mira co. Atmosphere" 
+          class="hero-bg-img"
+          loading="lazy" 
+          decoding="async"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+      
+      <div class="hero-content">
+        <span class="hero-pill">Crafted Fresh Daily</span>
+        <h1 class="hero-title">Cravings. Comfort. Culture.</h1>
+        <p class="hero-subtitle">Every drink and meal is made freshly to order using artisanal local ingredients.</p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">Explore Menu</a>
+          <button id="hero-policy-btn" class="btn btn-secondary">Delivery Guidelines</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+      <div class="section-header">
+        <h2>Our Signature Menu</h2>
+        <p>Hover over cards to view full item descriptions.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-category="all">All Items</button>
+        <button class="filter-btn" data-category="coffee">Coffee & Espresso</button>
+        <button class="filter-btn" data-category="matcha">Matcha & Teas</button>
+        <button class="filter-btn" data-category="blends">Blends</button>
+        <button class="filter-btn" data-category="food">Comfort Foods</button>
+      </div>
+
+      <!-- Product Grid -->
+      <div id="product-grid" class="product-grid">
+        <!-- Rendered Dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <h2>Our Promise</h2>
+        <p>At <strong>Mira co.</strong>, we bring your cravings to life with extreme comfort and rich culture. We do not store pre-made beverages or food. Every single item is handcrafted the second your order hits our kitchen.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3 class="footer-logo">Mira co.</h3>
+        <p>Cravings. Comfort. Culture.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours</h4>
+        <p>Open Daily: 11:30 AM – 8:00 PM</p>
+        <p><small>Orders after hours are queued for next day dispatch.</small></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Mira co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Slide-Out Cart Overlay Drawer -->
+  <div id="cart-drawer-backdrop" class="drawer-backdrop"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping Cart">
+    <div class="cart-header">
+      <h3>Your Bag</h3>
+      <button id="close-cart-btn" class="close-btn" aria-label="Close Cart">&times;</button>
+    </div>
+    <div id="cart-items-container" class="cart-body">
+      <!-- Cart items injected via JS -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-subtotal">
+        <span>Total:</span>
+        <span id="cart-total-amount">₦0</span>
+      </div>
+      <button id="checkout-btn" class="btn btn-primary btn-block">
+        <span class="btn-text">Proceed to Checkout</span>
+        <span class="btn-spinner hidden"></span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Operational Policy Modal -->
+  <div id="policy-modal-backdrop" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Order & Delivery Policy</h3>
+        <button id="close-policy-btn" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="policy-item">
+          <h4>Fresh Preparation</h4>
+          <p>Everything is prepared fresh on order. We do not sell pre-packaged or stale items.</p>
+        </div>
+        <div class="policy-item">
+          <h4>Fulfillment Lead Time</h4>
+          <p>Preparation and delivery may take up to 2 hours during rush hours. We appreciate your patience!</p>
+        </div>
+        <div class="policy-item">
+          <h4>Weather Delays</h4>
+          <p>Heavy rainfall or severe weather may cause courier dispatch delays for safety.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="confirm-policy-btn" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript File -->
+  <script src="main.js"></script>
+</body>
+</html>
