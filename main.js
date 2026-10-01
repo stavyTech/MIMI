@@ -8,7 +8,7 @@ const products = [
 
 let cart = [];
 
-// DOM Elements
+// DOM Ready Initialization
 document.addEventListener('DOMContentLoaded', () => {
   renderProducts('all');
   initMobileMenu();
@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initFilterTabs();
 });
 
-// 1. Render Products with Overlay & Button Loaders
+// 1. Render Products
 function renderProducts(category) {
   const grid = document.getElementById('product-grid');
+  if (!grid) return;
   grid.innerHTML = '';
 
   const filtered = category === 'all' 
@@ -59,7 +60,6 @@ function renderProducts(category) {
       const spinner = button.querySelector('.btn-spinner');
       const productId = parseInt(button.dataset.id);
 
-      // Trigger Loader Animation
       text.classList.add('hidden');
       spinner.classList.remove('hidden');
 
@@ -67,30 +67,78 @@ function renderProducts(category) {
         addToCart(productId);
         spinner.classList.add('hidden');
         text.classList.remove('hidden');
-      }, 500); // 500ms loader delay
+      }, 500);
     });
   });
 }
 
-// 2. Mobile Menu Handler (Hamburger Transform to X)
+// 2. Mobile Menu Handler (Uncommented & Safe-Checked)
 function initMobileMenu() {
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
 
-  toggleBtn.addEventListener('click', () => {
-    toggleBtn.classList.toggle('is-active');
-    mobileNav.classList.toggle('open');
-  });
-
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      toggleBtn.classList.remove('is-active');
-      mobileNav.classList.remove('open');
+  if (toggleBtn && mobileNav) {
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('is-active');
+      mobileNav.classList.toggle('open');
     });
-  });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        toggleBtn.classList.remove('is-active');
+        mobileNav.classList.remove('open');
+      });
+    });
+  }
 }
 
-// 3. Cart State & Side Drawer
+// 3. Operational Policy Modal Handler
+function initPolicyModal() {
+  const backdrop = document.getElementById('policy-modal-backdrop');
+  const closeBtn = document.getElementById('close-policy-btn');
+  const confirmBtn = document.getElementById('confirm-policy-btn');
+  const openBannerBtn = document.getElementById('open-policy-btn');
+  const openHeroBtn = document.getElementById('hero-policy-btn');
+
+  const openModal = () => {
+    if (backdrop) backdrop.classList.add('active');
+  };
+
+  const closeModal = () => {
+    if (backdrop) backdrop.classList.remove('active');
+  };
+
+  // Open modal on load
+  openModal();
+
+  // Close Event Listeners
+  if (closeBtn) {
+    closeBtn.onclick = (e) => {
+      e.stopPropagation();
+      closeModal();
+    };
+  }
+
+  if (confirmBtn) {
+    confirmBtn.onclick = (e) => {
+      e.stopPropagation();
+      closeModal();
+    };
+  }
+
+  // Re-open Event Listeners
+  if (openBannerBtn) openBannerBtn.onclick = openModal;
+  if (openHeroBtn) openHeroBtn.onclick = openModal;
+
+  // Backdrop click handler
+  if (backdrop) {
+    backdrop.onclick = (e) => {
+      if (e.target === backdrop) closeModal();
+    };
+  }
+}
+
+// 4. Cart State & Side Drawer
 function initCartDrawer() {
   const cartBtn = document.getElementById('cart-toggle-btn');
   const closeBtn = document.getElementById('close-cart-btn');
@@ -99,29 +147,29 @@ function initCartDrawer() {
   const checkoutBtn = document.getElementById('checkout-btn');
 
   const openCart = () => {
-    drawer.classList.add('open');
-    backdrop.classList.add('active');
+    drawer?.classList.add('open');
+    backdrop?.classList.add('active');
   };
 
   const closeCart = () => {
-    drawer.classList.remove('open');
-    backdrop.classList.remove('active');
+    drawer?.classList.remove('open');
+    backdrop?.classList.remove('active');
   };
 
-  cartBtn.addEventListener('click', openCart);
-  closeBtn.addEventListener('click', closeCart);
-  backdrop.addEventListener('click', closeCart);
+  cartBtn?.addEventListener('click', openCart);
+  closeBtn?.addEventListener('click', closeCart);
+  backdrop?.addEventListener('click', closeCart);
 
-  checkoutBtn.addEventListener('click', () => {
+  checkoutBtn?.addEventListener('click', () => {
     const text = checkoutBtn.querySelector('.btn-text');
     const spinner = checkoutBtn.querySelector('.btn-spinner');
-    text.classList.add('hidden');
-    spinner.classList.remove('hidden');
+    text?.classList.add('hidden');
+    spinner?.classList.remove('hidden');
 
     setTimeout(() => {
       alert('Checkout process initiated!');
-      spinner.classList.add('hidden');
-      text.classList.remove('hidden');
+      spinner?.classList.add('hidden');
+      text?.classList.remove('hidden');
       cart = [];
       updateCartUI();
       closeCart();
@@ -135,7 +183,7 @@ function addToCart(id) {
 
   if (existing) {
     existing.qty++;
-  } else {
+  } else if (item) {
     cart.push({ ...item, qty: 1 });
   }
 
@@ -150,8 +198,10 @@ function updateCartUI() {
   const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
   const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-  badge.textContent = totalQty;
-  totalDisplay.textContent = `₦${totalPrice.toLocaleString()}`;
+  if (badge) badge.textContent = totalQty;
+  if (totalDisplay) totalDisplay.textContent = `₦${totalPrice.toLocaleString()}`;
+
+  if (!container) return;
 
   if (cart.length === 0) {
     container.innerHTML = '<p style="text-align:center; padding: 2rem; color: #888;">Your bag is empty.</p>';
@@ -167,21 +217,6 @@ function updateCartUI() {
       </div>
     </div>
   `).join('');
-}
-
-// 4. Policy Modal Handler
-function initPolicyModal() {
-  const openBtns = [document.getElementById('open-policy-btn'), document.getElementById('hero-policy-btn')];
-  const closeBtn = document.getElementById('close-policy-btn');
-  const confirmBtn = document.getElementById('confirm-policy-btn');
-  const backdrop = document.getElementById('policy-modal-backdrop');
-
-  const openModal = () => backdrop.classList.add('active');
-  const closeModal = () => backdrop.classList.remove('active');
-
-  openBtns.forEach(btn => btn?.addEventListener('click', openModal));
-  closeBtn.addEventListener('click', closeModal);
-  confirmBtn.addEventListener('click', closeModal);
 }
 
 // 5. Category Tabs

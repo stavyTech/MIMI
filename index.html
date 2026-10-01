@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- SEO Meta Tags -->
-  <title>Mira co. — Cravings. Comfort. Culture.</title>
-  <meta name="description" content="Experience premium specialty coffee, artisan drinks, and freshly crafted meals at Mira co. Order online for quick delivery or pickup.">
+  <title>Mira.co — Cravings. Comfort. Culture.</title>
+  <meta name="description" content="Experience premium specialty coffee, artisan drinks, and freshly crafted meals at Mira.co Order online for quick delivery or pickup.">
   <meta name="keywords" content="Mira co, cafe, coffee, fresh drinks, food delivery, artisanal cafe">
   <meta name="author" content="Mira co.">
   
   <!-- Open Graph / Social Media SEO -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mira co. — Cravings. Comfort. Culture.">
+  <meta property="og:title" content="Mira.co — Cravings. Comfort. Culture.">
   <meta property="og:description" content="Crafted fresh, served smooth. Order your favorite food & drinks online.">
   <meta property="og:image" content="logo.jpg">
   
@@ -24,7 +24,7 @@
   <!-- Top Announcement Bar -->
   <div class="top-banner">
     <div class="banner-container">
-      <span>✨ Welcome to Mira co. | Cravings. Comfort. Culture.</span>
+      <span>✨ Welcome to Mira.co | Cravings. Comfort. Culture.</span>
       <button id="open-policy-btn" class="banner-link">Order & Delivery Policy</button>
     </div>
   </div>
@@ -37,7 +37,7 @@
       <a href="#" class="brand-logo">
         <div class="logo-circle">m</div>
         <div class="brand-text">
-          <span class="brand-name">Mira co.</span>
+          <span class="brand-name">Mira.co</span>
           <span class="brand-tagline">Cravings. Comfort. Culture</span>
         </div>
       </a>
@@ -78,7 +78,31 @@
 
   <main>
     <!-- Hero Section with Native Lazy Loaded Image Background -->
-    <section id="home" class="hero-section">
+
+    <!-- Hero Section -->
+<section id="home" class="hero-section">
+  <div class="hero-bg-wrapper">
+    <img 
+      src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600" 
+      alt="Mira co. Atmosphere" 
+      class="hero-bg-img"
+      loading="lazy" 
+      decoding="async"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+  
+  <div class="hero-content">
+    <span class="hero-pill">Crafted Fresh Daily</span>
+    <h1 class="hero-title">Cravings. Comfort. Culture.</h1>
+    <p class="hero-subtitle">Every drink and meal is made freshly to order using artisanal local ingredients.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-primary">Explore Menu</a>
+      <button id="hero-policy-btn" class="btn btn-secondary">Delivery Guidelines</button>
+    </div>
+  </div>
+</section>
+    <!-- <section id="home" class="hero-section">
       <div class="hero-bg-wrapper">
         <img 
           src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=1600" 
@@ -99,7 +123,7 @@
           <button id="hero-policy-btn" class="btn btn-secondary">Delivery Guidelines</button>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- Menu Section -->
     <section id="menu" class="menu-section">
@@ -136,7 +160,7 @@
   <footer id="contact" class="site-footer">
     <div class="footer-container">
       <div class="footer-col">
-        <h3 class="footer-logo">Mira co.</h3>
+        <h3 class="footer-logo">Mira.co</h3>
         <p>Cravings. Comfort. Culture.</p>
       </div>
       <div class="footer-col">
@@ -154,7 +178,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Mira co. All rights reserved.</p>
+      <p>&copy; 2026 Mira.co All rights reserved.</p>
     </div>
   </footer>
 
@@ -180,32 +204,34 @@
     </div>
   </aside>
 
-  <!-- Operational Policy Modal -->
-  <div id="policy-modal-backdrop" class="modal-backdrop">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3>Order & Delivery Policy</h3>
-        <button id="close-policy-btn" class="close-btn">&times;</button>
+
+<!-- Operational Policy Modal (Starts Active on Page Load) -->
+<!-- Operational Policy Modal (Starts Active on Page Load) -->
+<div id="policy-modal-backdrop" class="modal-backdrop active">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h3>Order & Delivery Policy</h3>
+      <button id="close-policy-btn" class="close-btn" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="policy-item">
+        <h4>Fresh Preparation</h4>
+        <p>Everything is prepared fresh on order. We do not sell pre-packaged or stale items.</p>
       </div>
-      <div class="modal-body">
-        <div class="policy-item">
-          <h4>Fresh Preparation</h4>
-          <p>Everything is prepared fresh on order. We do not sell pre-packaged or stale items.</p>
-        </div>
-        <div class="policy-item">
-          <h4>Fulfillment Lead Time</h4>
-          <p>Preparation and delivery may take up to 2 hours during rush hours. We appreciate your patience!</p>
-        </div>
-        <div class="policy-item">
-          <h4>Weather Delays</h4>
-          <p>Heavy rainfall or severe weather may cause courier dispatch delays for safety.</p>
-        </div>
+      <div class="policy-item">
+        <h4>Fulfillment Lead Time</h4>
+        <p>Preparation and delivery may take up to 2 hours during rush hours. We appreciate your patience!</p>
       </div>
-      <div class="modal-footer">
-        <button id="confirm-policy-btn" class="btn btn-primary">Understood</button>
+      <div class="policy-item">
+        <h4>Weather Delays</h4>
+        <p>Heavy rainfall or severe weather may cause courier dispatch delays for safety.</p>
       </div>
     </div>
+    <div class="modal-footer">
+      <button id="confirm-policy-btn" class="btn btn-primary">Understood</button>
+    </div>
   </div>
+</div>
 
   <!-- JavaScript File -->
   <script src="main.js"></script>
